@@ -4,11 +4,15 @@ spring:
   application:
     name: config-server
     profiles:
-      active: git
+      active: native
     cloud:
       config:
         server:
+          native:
+            search-locations: file:\\\E:\KATA\projects\Microservices\microservices_danche\ms-config-properties\{application}\{profile}\
           git:
+            uri:
+
 
 
 eureka:
