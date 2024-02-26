@@ -3,16 +3,31 @@ server:
 spring:
   application:
     name: config-server
-    profiles:
-      active: native
-    cloud:
-      config:
-        server:
-          native:
-            search-locations: file:\\\E:\KATA\projects\Microservices\microservices_danche\ms-config-properties\{application}\{profile}\
-          git:
-            uri:
+  profiles:
+    active: git
 
+---
+spring:
+  config:
+    activate:
+      on-profile: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/DanikWRT/Microservices_danche
+          searchPaths: "/tree/master/ms-config-properties/{application}/{profile}"
+          default-label: main
+---
+spring:
+  config:
+    activate:
+      on-profile: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: 'file:\\\E:\KATA\projects\Microservices\microservices_danche\ms-config-properties\{application}\{profile}\'
 
 
 eureka:
