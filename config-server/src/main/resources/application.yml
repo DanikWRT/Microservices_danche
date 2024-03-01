@@ -16,7 +16,7 @@ spring:
       server:
         git:
           uri: https://github.com/DanikWRT/Microservices_danche
-          searchPaths: "/tree/master/ms-config-properties/{application}/{profile}"
+          searchPaths: "/ms-config-properties/{application}/{profile}"
           default-label: main
 ---
 spring:
