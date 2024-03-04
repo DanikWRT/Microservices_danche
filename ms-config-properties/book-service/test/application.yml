@@ -1,0 +1,11 @@
+server:
+  port: 8000
+
+spring:
+  data:
+    mongodb:
+      database: books
+      host: localhost
+      port: 27017
+      username: admin
+      password: admin
