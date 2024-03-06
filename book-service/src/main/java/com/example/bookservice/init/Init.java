@@ -6,12 +6,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 
 public class Init {
-    @Configuration
+    @Component
     public class DatabaseConfig {
 
         private final MongoTemplate mongoTemplate;
@@ -21,7 +23,7 @@ public class Init {
             this.mongoTemplate = mongoTemplate;
         }
 
-        @Bean
+        @PostConstruct
         public CommandLineRunner commandLineRunner() {
             return args -> {
                 // Создаем список книг для сохранения в базу данных
